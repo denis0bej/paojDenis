@@ -94,38 +94,38 @@ Exemple (pentru tema *Bibliotecă*):
 
 #### 2.1 — Clase și OOP
 
-- [ ] Cel puțin **8 clase** care modelează obiectele definite la punctul 1
-- [ ] Atribute **`private`** sau **`protected`**, cu getteri/setteri acolo unde e necesar
-- [ ] Metode `toString()`, `equals()` și `hashCode()` suprascrise la cel puțin **2 clase**
-- [ ] Cel puțin **o ierarhie de moștenire** (`extends`) cu minim **2 niveluri**
+- [x] Cel puțin **8 clase** care modelează obiectele definite la punctul 1
+- [x] Atribute **`private`** sau **`protected`**, cu getteri/setteri acolo unde e necesar
+- [x] Metode `toString()`, `equals()` și `hashCode()` suprascrise la cel puțin **2 clase**
+- [x] Cel puțin **o ierarhie de moștenire** (`extends`) cu minim **2 niveluri**
   _(ex: `Persoana` → `Angajat` → `Manager`, sau `Persoana` → `Student` + `Profesor`)_
-- [ ] Cel puțin **o clasă abstractă** sau **o interfață** folosită în ierarhie
+- [x] Cel puțin **o clasă abstractă** sau **o interfață** folosită în ierarhie
   _(ex: clasă abstractă `Persoana` cu metodă abstractă `getRol()`)_
-- [ ] Cel puțin **o clasă imutabilă**: atribute `final`, fără setteri, inițializate complet în constructor
+- [x] Cel puțin **o clasă imutabilă**: atribute `final`, fără setteri, inițializate complet în constructor
   _(ex: `ISBN`, `CodProdus`, `TransactionRecord` — un tip de identificator sau înregistrare read-only)_
-- [ ] Cel puțin **2 excepții custom** aruncate și tratate în cod
+- [x] Cel puțin **2 excepții custom** aruncate și tratate în cod
   _(ex: `CarteNedisponibilaException`, `CititorNegasitException`)_
 
 #### 2.2 — Colecții
 
-- [ ] Cel puțin **2 tipuri diferite de colecții** (`List`, `Set`, `Map`, `Queue`, etc.)
-- [ ] Cel puțin **una sortată** — prin implementarea `Comparable` pe clasă sau prin `Comparator`
+- [x] Cel puțin **2 tipuri diferite de colecții** (`List`, `Set`, `Map`, `Queue`, etc.)
+- [x] Cel puțin **una sortată** — prin implementarea `Comparable` pe clasă sau prin `Comparator`
   _(ex: `TreeSet<Carte>` sortate după titlu, sau `List<Student>` sortată după medie cu `Collections.sort`)_
-- [ ] Cel puțin **un `Map`** folosit pentru indexare sau grupare
+- [x] Cel puțin **un `Map`** folosit pentru indexare sau grupare
   _(ex: `Map<String, List<Carte>>` — cărți grupate pe autor, `Map<String, Cont>` — conturi indexate după IBAN)_
 
 #### 2.3 — Servicii
 
 - [ ] Cel puțin **2 clase de serviciu** care expun operațiile sistemului
   _(ex: `CarteService`, `CititorService` — fiecare gestionează operații pentru un tip de obiect)_
-- [ ] Fiecare serviciu implementat ca **Singleton** (constructor privat + metodă statică `getInstance()`)
-- [ ] Serviciile expun cel puțin operațiile: **adaugă, șterge, caută după id/nume, listează toate**
-- [ ] O clasă **`Main`** care apelează **toate cele 10 acțiuni** definite la punctul 1,
+- [x] Fiecare serviciu implementat ca **Singleton** (constructor privat + metodă statică `getInstance()`)
+- [x] Serviciile expun cel puțin operațiile: **adaugă, șterge, caută după id/nume, listează toate**
+- [x] O clasă **`Main`** care apelează **toate cele 10 acțiuni** definite la punctul 1,
   demonstrând funcționarea completă a sistemului
 
 #### 2.4 — Organizare și calitate
 
-- [ ] Codul organizat în **sub-pachete** logice:
+- [x] Codul organizat în **sub-pachete** logice:
   ```
   com.pao.proiect.<tema>/
   ├── model/        ← clasele de domeniu
@@ -133,8 +133,8 @@ Exemple (pentru tema *Bibliotecă*):
   ├── exception/    ← excepțiile custom
   └── Main.java
   ```
-- [ ] Fără cod duplicat — logica comună extrasă în metode sau clase de bază
-- [ ] Fără `NullPointerException` la rulare — validează inputurile în servicii
+- [x] Fără cod duplicat — logica comună extrasă în metode sau clase de bază
+- [x] Fără `NullPointerException` la rulare — validează inputurile în servicii
 
 ---
 
@@ -323,4 +323,3 @@ o poți schimba doar cu acordul asistentului.
 ### Pot lucra pe același branch cu laboratoarele?
 Nu. Proiectul se trimite pe branch-uri separate (`proiect-etapa1`, `proiect-etapa2`),
 distinct față de branch-urile de laborator (`lab5`, `lab6`, etc.).
-
