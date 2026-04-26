@@ -116,7 +116,7 @@ Exemple (pentru tema *Bibliotecă*):
 
 #### 2.3 — Servicii
 
-- [ ] Cel puțin **2 clase de serviciu** care expun operațiile sistemului
+- [x] Cel puțin **2 clase de serviciu** care expun operațiile sistemului
   _(ex: `CarteService`, `CititorService` — fiecare gestionează operații pentru un tip de obiect)_
 - [x] Fiecare serviciu implementat ca **Singleton** (constructor privat + metodă statică `getInstance()`)
 - [x] Serviciile expun cel puțin operațiile: **adaugă, șterge, caută după id/nume, listează toate**
