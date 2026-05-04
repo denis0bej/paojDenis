@@ -1,4 +1,4 @@
-package com.pao.laboratory09.exercise2;
+package src.com.pao.laboratory09.exercise2;
 
 import com.pao.test.IOTest;
 
