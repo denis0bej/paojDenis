@@ -1,30 +1,79 @@
-package com.pao.laboratory10.exercise1;
+package src.com.pao.laboratory10.exercise1;
 
 import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        // TODO: Implementează conform Readme.md
-        //
-        // Folosește LinkedList<Tranzactie> ca structură internă.
-        // Citește comenzi din stdin până la EOF:
-        //
-        //   ENQUEUE id suma data tip   → addLast  (niciun output)
-        //   DEQUEUE                    → removeFirst sau "Coada goala."
-        //                                format: "Procesat: [id] data tip: suma RON"
-        //   PUSH id suma data tip      → addFirst  (niciun output)
-        //   POP                        → removeFirst sau "Coada goala."
-        //                                format: "Extras: [id] data tip: suma RON"
-        //   REMOVE_DEBIT               → Iterator.remove() pe toate DEBIT
-        //                                afișează "Eliminat N tranzactii DEBIT."
-        //   REMOVE_BELOW threshold     → Iterator.remove() pe suma < threshold
-        //                                afișează "Eliminat N tranzactii sub threshold RON."
-        //   PRINT                      → afișează toate, câte una pe linie
-        //   SIZE                       → "Dimensiune coada: N"
-        //
-        // Format linie tranzacție: [id] data tip: suma RON
-        //   Ex: [1] 2024-01-10 CREDIT: 500.00 RON
 
-        System.out.println("TODO: implementează exercițiul 1");
+        LinkedList<Tranzactie> tranzactii = new LinkedList<Tranzactie>();
+        Scanner scanner = new Scanner(System.in).useLocale(Locale.US);
+
+        while(scanner.hasNext()){
+            String comanda = scanner.next();
+            if (comanda.equals("ENQUEUE")){
+                int id = scanner.nextInt();
+                double suma = scanner.nextDouble();
+                String data = scanner.next();
+                String tip = scanner.next();
+
+                tranzactii.addLast(new Tranzactie(id,suma,data,TipTranzactie.valueOf(tip)));
+            }
+            else if (comanda.equals("DEQUEUE")){
+                if (tranzactii.isEmpty()) System.out.println("Coada goala.");
+                else {
+                    Tranzactie t = tranzactii.removeFirst();
+                    System.out.println("Procesat: " + t.toString());
+                }
+            }
+            else if (comanda.equals("PUSH")){
+                int id = scanner.nextInt();
+                double suma = scanner.nextDouble();
+                String data = scanner.next();
+                String tip = scanner.next();
+
+                tranzactii.addFirst(new Tranzactie(id,suma,data,TipTranzactie.valueOf(tip)));
+            }
+            else if (comanda.equals("POP")){
+                if (tranzactii.isEmpty()) System.out.println("Coada goala.");
+                else {
+                    Tranzactie t = tranzactii.removeFirst();
+                    System.out.println("Extras: " + t.toString());
+                }
+            }
+            else if (comanda.equals("REMOVE_DEBIT")){
+                Iterator<Tranzactie> it = tranzactii.iterator();
+                int nrEliminat = 0;
+
+                while (it.hasNext()) {
+                    Tranzactie t = it.next();
+                    if (t.getTip() == TipTranzactie.DEBIT) {
+                        it.remove();
+                        nrEliminat++;
+                    }
+                }
+                System.out.println("Eliminat " + nrEliminat + " tranzactii DEBIT.");
+            }
+            else if (comanda.equals("REMOVE_BELOW")){
+                double threshold = scanner.nextDouble();
+                Iterator<Tranzactie> it = tranzactii.iterator();
+                int nrEliminat = 0;
+
+                while (it.hasNext()) {
+                    Tranzactie t = it.next();
+                    if (t.getSuma() < threshold) {
+                        it.remove();
+                        nrEliminat++;
+                    }
+                }
+                // Formatting threshold to match potential precision requirements (optional but recommended)
+                System.out.println("Eliminat " + nrEliminat + " tranzactii sub " + String.format("%.2f", threshold) + " RON.");
+            }
+            else if (comanda.equals("PRINT")){
+                for (Tranzactie t : tranzactii) System.out.println(t.toString());
+            }
+            else if (comanda.equals("SIZE")){
+                System.out.println("Dimensiune coada: " + tranzactii.size());
+            }
+        }
     }
 }
